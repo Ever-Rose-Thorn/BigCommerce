@@ -1,0 +1,3 @@
+#Remove unwanted characters from review submitted about product
+<h5 itemprop="name" class="productReview-title">{{{sanitize title}}}</h5>
+<p itemprop="reviewBody" class="productReview-body">{{{sanitize text}}}</p>
