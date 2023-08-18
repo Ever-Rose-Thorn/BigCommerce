@@ -1,0 +1,31 @@
+{{#each product.custom_fields}}
+             <div style="display:none">
+                 <dt class="productView-info-name {{#if name '===' 'Primary Product'}}{{#if value '===' 'Yes'}}is-srOnly{{/if}}{{/if}}">{{{name}}}:</dt>
+                 <dd class="productView-info-value {{#if name '===' 'Primary Product'}}{{#if value '===' 'Yes'}}is-srOnly{{/if}}{{/if}}">{{{value}}}</dd>
+             </div>
+            <div style="clear:both"></div>
+              {{#each this}}
+                {{#if this '==' 'Exmaple1' }} 
+                <div style="padding:7px;margin-bottom:7px;">
+                <i class="fas fa-exclamation-triangle" style="color:#903;margin-right:3px;"></i>
+                <span style="color:#903;font-weight:bold">This is Example1</span></div>
+             {{/if}}
+             {{#if this '==' 'Example2' }} 
+             <div style="padding:7px;margin-bottom:7px;">
+              <i class="fas fa-exclamation-triangle" style="color:#903;margin-right:3px;"></i>
+              <span style="color:#903;font-weight:bold">This is Example2</span></div>
+             {{/if}}
+              {{#if this '==' 'Example3' }} 
+              <div style="padding:7px;margin-bottom:7px;"><i class="fas fa-exclamation-triangle" style="color:#903;margin-right:3px;"></i>
+              <span style="color:#903;font-weight:bold">This is Example3</span></div>
+             {{/if}}
+            {{#if this '==' 'Example4' }} 
+            <div style="padding:7px;margin-bottom:7px;"><i class="fas fa-exclamation-triangle" style="color:#903;font-weight:bold"></i>
+            <span style="color:#903;font-weight:bold">This is Example4</span></div>
+             {{/if}}
+             {{#contains this 'Exmaple5'}}
+             <div style="padding:7px;margin-bottom:7px;background-color:#9efad1"><i class="fas fa-warehouse" style="color:#000;font-weight:bold;margin-right:2px;"></i>
+              <span style="color:#000;font-weight:bold">This is Example5</span></div>
+             {{/contains}}
+                 {{/each}}
+              {{/each}}
