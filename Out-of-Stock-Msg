@@ -1,0 +1,50 @@
+##From Product View File (HTML) - Appears on Product Page
+<section class="productView-details">
+         <!-- Out of Stock Message, Gets Custom File -->
+         {{> components/common/custom-stock-product}}
+</section>
+
+## Custom-Stock-Product File
+{{#each product.custom_fields}}
+{{#each this}}
+ {{#if this '==' 'Company_Name'}}
+ <style>
+  .myStyle{
+  display:contents !important;
+  }
+</style>
+ {{/if}}
+ {{/each}}
+{{/each}}
+{{#each product.custom_fields}}
+{{#if name '==' 'Available Qty'}}
+{{#if value '<=' '0'}}
+   <div style="padding:10px;border:#af4b64 1px solid;color:#af4b64;font-weight:900;border-radius:5px;margin:7px;max-width:75%">
+    <i class="fas fa-exclamation-circle" style="margin-right:3px"></i>Out of Stock - Pre-order today! <span class="myStyle" style="display:none">-This Product is usually available
+    within 2 business days.
+    </span>
+  </div>
+{{/if}}
+{{/if}}
+{{/each}}
+
+##From Shopping Cart File - Appears on Shopping Cart Page
+<td class="cart-item-block cart-item-title">
+                    {{#if brand.name}}
+                        <p class="cart-item-brand">{{brand.name}}</p>
+                    {{/if}}
+                     SKU: {{sku}}
+                      <!--Rose Johnson Out of Stock Message-->
+                    {{> components/common/custom-stock-cart}}
+</td>
+
+##Custom-Stock-Cart
+{{#each custom_fields}}
+{{#if name '===' 'Available Qty'}}
+                {{#if value '<=' '0'}}
+                <div style="padding:10px;border:#af4b64 1px solid;color:#af4b64;font-weight:900;border-radius:5px;margin:7px;max-width:75%">
+                  <i class="fas fa-exclamation-circle" style="margin-right:3px"></i>Out of Stock
+                </div>
+                {{/if}}
+               {{/if}}
+             {{/each}}
